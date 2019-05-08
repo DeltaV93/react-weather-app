@@ -19,12 +19,16 @@ export default class ActiveForecast extends React.Component {
             </h2>
           <div className="weather--box flex--row">
                 <section className="weather--box__main-content container--flex flex--col">
+                    <p>Today's Average</p>
                     <div className="weather--main-content">
                         <div className="weather__img">
                             <img src={activeViewingData.day.condition.icon}
                                  alt={"image describing " + activeViewingData.day.condition.text + " weather"} />
                         </div>
-                        <div className="weather__degrees">{activeViewingData.feelslike_f || currentData.temp_f}&deg;</div>
+                        <div className="weather__degrees">
+
+                            {activeViewingData.day.avgtemp_f }&deg;
+                        </div>
                     </div>
                     <div className="weather__details">{activeViewingData.day.condition.text}</div>
                 </section>

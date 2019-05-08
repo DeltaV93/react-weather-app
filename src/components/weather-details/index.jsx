@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./styles.scss"
-import Weather from "./weather"
 import ActiveForecast from "./active"
 import {Manager, Reference, Popper} from "react-popper";
 
