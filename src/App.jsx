@@ -5,7 +5,7 @@ import "./App.css";
 import "./sass/app.scss"
 
 import WeatherDetails from "./components/weather-details/"
-import ForecastDetails from "./components/weather-forcast/"
+import ForecastDetails from "./components/weather-forecast/"
 
 // TODO || move this to a env file
 const WEATHER_KEY = "7303bd4d91ca462db7d233449190705";
