@@ -1,4 +1,20 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Weather App - Feedback Welcomed 
+Simple weather app build as a way to relearn ReactJS
+
+---
+Todo
+1. Update keys to be used with .env
+2. Turn all backend calls into JSON 
+3. Create a responsive grid using flex
+4. Fix issue with card styling. Give elements in the card fix width & height so the card does not change sizes 
+5. Improve UX by adding alert messages to notify the user of the error
+6. code cleanup: refactor functions
+7. get user location from the browser to get first location
+8. Write more test
+9. Store up to 5 locations
+---
+
 
 ## Available Scripts
 
