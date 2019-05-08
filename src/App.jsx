@@ -23,7 +23,6 @@ class App extends Component {
         }
     }
 
-
      /**
      * Summary
      * Dose a ajax GET request to pull weather data based on info the user provides*
@@ -75,12 +74,20 @@ class App extends Component {
             console.error("We cannot pull weather data at the moment", err)
         });
     }
+    /**
+     * Summary
+     * When user clicks on a forecast the current view needs to be updated
+     * and set the state for the whole app
+     *
+     * @newDate {string}          active date in string form
+     * @forecastList {list}       list of 5 day forecast for current location
+     *
+     * @return {null}     dose not return any data, just sets the state.
+     */
     updateForecast(newDate, forecastList){
-        let setForecastDate;
         let viewingData;
-        console.log(forecastList);
 
-        setForecastDate = this.state.viewingForecastDate;
+        // TODO || code cleanup: move this out into a function used by two functions
         // Used to find the the current forecast based
         // on current setForecastDate
         forecastList.map( (forecast, index) => {
@@ -88,9 +95,9 @@ class App extends Component {
                 viewingData = forecastList[index];
             }
         });
-        // console.log(newDate);
+
         this.setState({
-                viewingForecastDate: setForecastDate,
+                viewingForecastDate: newDate,
                 activeViewingData: viewingData,
         });
     }

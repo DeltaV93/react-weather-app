@@ -8,7 +8,6 @@ export default class Forecast extends React.Component {
     }
 
     onSelectDetails(data) {
-        console.log(data);
         const {eventEmitter} = this.props;
         eventEmitter.emit("updateForecast", data);
     }
