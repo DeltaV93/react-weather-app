@@ -1,0 +1,52 @@
+.container--details {
+  align-items: center;
+  font-family: Oxygen, sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.weather--box {
+  display: flex;
+  //flex-direction: column;
+  text-align: center;
+  width: 100%;
+
+  .weather--box__main-content {
+
+    .weather--main-content {
+      margin-bottom: 1.5em;
+      align-items: center;
+      align-self: center;
+
+      .weather__img {
+        width: 3em;
+        height: 3em;
+        margin-right: 1.5em;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .weather__degrees {
+        font-size: 250%;
+      }
+    }
+  }
+
+  .weather--box__details-content{
+    //width: 50%;
+    margin-left: 50px;
+  }
+  .weather--box__main-content,
+  .weather--box__details-content {
+    //width: 50%;
+  }
+
+}
+
