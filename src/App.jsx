@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import axios from "axios"
+import axios from "axios";
 import "./App.css";
+import moment from "moment";
 
 import "./sass/app.scss"
 
@@ -15,12 +16,35 @@ class App extends Component {
         super(props);
         this.state = {
             cityName: "Los Angeles",
+            viewingForecastDate: "",
+            activeViewingData: [],
             numForecastDays: 5,
             isLoading: true,
             refreshedTime: 300,
         }
     }
-
+    /**
+     * Summary
+     * Used to find the the current forecast based on current viewingForecastDate
+     *
+     * @forecastList {array}    list of weather forecast data.
+     * @date {string}           string of the date we're looking to match.
+     * @return {list} Returns a single list of the data we are looking for.
+     */
+    findMatchingDate(forecastList, date) {
+        forecastList.map( (forecast, index) => {
+          if(forecast.date === date){
+             return forecastList[index];
+          }
+        });
+    }
+     /**
+     * Summary
+     * Dose a ajax GET request to pull weather data based on info the user provides*
+     * and set the state for the whole app
+     *
+     * @return {null}     nose not return any data, just sets the state.
+     */
     updateWeather() {
         const {cityName, numForecastDays} = this.state;
         const url = `http://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${cityName}&days=${numForecastDays}`;
@@ -30,19 +54,34 @@ class App extends Component {
         axios.get(url).then(response => {
             return response.data;
         }).then((data) => {
-            // TODO || return app data as one object vs multiple to make code more fixable
+
+            let viewingDate;
+            let viewingData;
+            let forcastList = data.forecast.forecastday;
+            // if viewingForecastDate is set, we can update later
+            // if not, we need to set it as the current date
+            if(!this.state.viewingForecastDate){
+                viewingDate = data.forecast.forecastday[0].date;
+                viewingData =  data.forecast.forecastday[0];
+            } else {
+                viewingDate = this.state.activeViewingData;
+                viewingData = this.findMatchingDate(forcastList, viewingDate);
+            }
+            // make sure the data is formatted to match the json response
+            // set the state
+
             this.setState({
                 isLoading: false,
-                tempF: data.current.temp_f,
-                isDay: data.current.is_day,
-                text: data.current.condition.text,
-                iconURL: data.current.condition.icon,
+                viewingForecastDate: viewingDate,
+                activeViewingData: viewingData,
                 forecastDays: data.forecast.forecastday,
                 locationData: data.location,
                 currentData: data.current
             });
-            console.log(this.state.locationData)
+
         }).catch(err => {
+            // if the ajax fails just console log a mess
+            // TODO || Improve UX by adding alert messages to notify the user of the error
             console.error("We cannot pull weather data at the moment", err)
         });
     }
@@ -51,7 +90,6 @@ class App extends Component {
 
         const {eventEmitter} = this.props;
         // TODO || get user location from the browser
-
         // load default data
         this.updateWeather();
 
@@ -72,14 +110,11 @@ class App extends Component {
 
         const {
             isLoading,
-            cityName,
-            tempF,
-            isDay,
-            text,
-            iconURL,
             forecastDays,
             locationData,
-            currentData
+            currentData,
+            viewingForecastDate,
+            activeViewingData,
         } = this.state;
 
         return (
@@ -88,19 +123,17 @@ class App extends Component {
                     {isLoading && <h3>Loading Weather Detail ...</h3>}
                     {!isLoading && (
                         <section className="section--top">
-                            <WeatherDetails
-                                locationData={locationData}
+                            <WeatherDetails locationData={locationData}
                                 currentData={currentData}
-                                location={cityName}
-                                tempF={tempF}
-                                isDay={isDay}
-                                text={text}
-                                iconURL={iconURL}
+                                viewingForecastDate={viewingForecastDate}
+                                activeViewingData={activeViewingData}
                                 eventEmitter={this.props.eventEmitter}/>
                         </section>
                     )}
                     <section className="section--bottom">
-                        <ForecastDetails forecastDays={forecastDays}/>
+                        <ForecastDetails  forecastDays={forecastDays}
+                                viewingForecastDate={viewingForecastDate}
+                                activeViewingData={activeViewingData}/>
                     </section>
 
                 </main>

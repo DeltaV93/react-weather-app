@@ -6,7 +6,7 @@ export default class Weather extends React.Component {
         super(props);
     }
 
-    render(){
+    render() {
         const {locationData, currentData } = this.props;
 
         return <section>
@@ -27,10 +27,10 @@ export default class Weather extends React.Component {
                 <section className="weather--box__details-content flex--col">
                     <h3>Forecast Details</h3>
                     <ul className="list--unstyled">
-                        <li className="list__item">
+                        <li className="list__item text--left">
                             <p><b>High of</b>: {currentData.feelslike_f}&deg;</p>
                         </li>
-                        <li className="list__item">
+                        <li className="list__item text--left">
                             <p><b>Feels Like</b>: {currentData.feelslike_f}&deg;</p>
                         </li>
                     </ul>

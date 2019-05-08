@@ -2,6 +2,7 @@ import React from "react";
 
 import "./styles.scss"
 import Weather from "./weather"
+import ActiveForecast from "./active"
 import {Manager, Reference, Popper} from "react-popper";
 
 
@@ -32,6 +33,9 @@ export default class Index extends React.Component {
         eventEmitter.emit("updateWeather", locationName);
         this.setState({isSelectLocationOpen: false});
     }
+    componentDidMount() {
+        console.log(this.props)
+    }
 
     render() {
         const {isSelectLocationOpen} = this.state;
@@ -39,7 +43,7 @@ export default class Index extends React.Component {
 
         return <section className="container--details container--flex flex--col">
             <h1 className="title">Weather App</h1>
-            <Weather {...this.props}/>
+            <ActiveForecast {...this.props}/>
             <Manager>
                 <Reference>
                     {({ref}) => (

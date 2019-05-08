@@ -15,23 +15,4 @@ body {
   background: -webkit-linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #7AA1D2, #DBD4B4, #CC95C0); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-// grid
-.container--flex {
-  display: flex;
-  padding: $padding;
-}
-.flex--row {
-  flex-direction: row;
-}
-.flex--col {
-  flex-direction: column;
-}
-// text center
-.text-center {
-  text-align: center;
-}
-//
-.list--unstyled {
-  list-style: none;
-  padding-left: 0;
-}
+
