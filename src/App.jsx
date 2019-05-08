@@ -75,6 +75,25 @@ class App extends Component {
             console.error("We cannot pull weather data at the moment", err)
         });
     }
+    updateForecast(newDate, forecastList){
+        let setForecastDate;
+        let viewingData;
+        console.log(forecastList);
+
+        setForecastDate = this.state.viewingForecastDate;
+        // Used to find the the current forecast based
+        // on current setForecastDate
+        forecastList.map( (forecast, index) => {
+            if (forecast.date === newDate) {
+                viewingData = forecastList[index];
+            }
+        });
+        // console.log(newDate);
+        this.setState({
+                viewingForecastDate: setForecastDate,
+                activeViewingData: viewingData,
+        });
+    }
 
     componentDidMount() {
 
@@ -91,6 +110,12 @@ class App extends Component {
             this.setState({
                 cityName: data
             }, () => this.updateWeather());
+
+        });
+
+        eventEmitter.on("updateForecast", (data) => {
+            // setState has a callback method built in
+            this.updateForecast(data, this.state.forecastDays)
 
         });
 
@@ -123,7 +148,8 @@ class App extends Component {
                     )}
                     <section className="section--bottom">
                         <ForecastDetails  forecastDays={forecastDays}
-                                viewingForecastDate={viewingForecastDate}/>
+                                          eventEmitter={this.props.eventEmitter}
+                                          viewingForecastDate={viewingForecastDate}/>
                     </section>
 
                 </main>

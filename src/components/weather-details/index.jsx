@@ -39,7 +39,6 @@ export default class Index extends React.Component {
 
     render() {
         const {isSelectLocationOpen} = this.state;
-        const { eventEmitter } = this.props;
 
         return <section className="container--details container--flex flex--col">
             <ActiveForecast {...this.props}/>

@@ -17,7 +17,10 @@ export default class ForecastDetails extends React.Component {
             <div className="weather--box weather__box--forecast">
                 {forecastDays &&
                     forecastDays.map((day, index) => {
-                        return <Forecast activeViewDate={viewingForecastDate} data={day} key={index} />;
+                        return <Forecast activeViewDate={viewingForecastDate}
+                                         data={day}
+                                         key={index}
+                                         eventEmitter={this.props.eventEmitter}/>;
                     })}
             </div>
 

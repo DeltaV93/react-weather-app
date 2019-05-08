@@ -7,12 +7,18 @@ export default class Forecast extends React.Component {
         super(props);
     }
 
+    onSelectDetails(data) {
+        console.log(data);
+        const {eventEmitter} = this.props;
+        eventEmitter.emit("updateForecast", data);
+    }
+
     render() {
         const { data, activeViewDate } = this.props;
         if (!data) return null;
 
         return( <section className="container--flex container--forecast">
-            <a data-selected-date={data.date}
+            <a onClick={((e) => this.onSelectDetails(data.date))} data-selected-date={data.date}
                className={
                    "weather--box__forecast " + (activeViewDate == data.date ? "weather--box__active": "" )
                }>
