@@ -1,0 +1,29 @@
+$box-active: #d8daeb;
+$container-bgc: #f0faec;
+
+.container--forecast {
+  background-color: $container-bgc;
+
+}
+
+.weather--box__forecast  {
+  padding: 20px;
+  width: 120px;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  //width: ;
+  border: 1px solid transparent;
+  &:hover {
+    background: lighten($box-active, 3%);
+    border: 1px solid darken(lighten($box-active, 3%), 5%);
+  }
+}
+.weather--box__active {
+    background: $box-active;
+    border: 1px solid darken($box-active, 10%);
+
+
+  &:hover {
+    background: darken($box-active, 5%);
+  }
+}

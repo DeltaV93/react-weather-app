@@ -108,7 +108,8 @@ class App extends Component {
         } = this.state;
 
         return (
-            <div className="wrapper container--flex">
+            <div className="wrapper container--flex flex--col">
+                <h1 className="title">Weather App</h1>
                 <main className="container container--main">
                     {isLoading && <h3>Loading Weather Detail ...</h3>}
                     {!isLoading && (
@@ -122,8 +123,7 @@ class App extends Component {
                     )}
                     <section className="section--bottom">
                         <ForecastDetails  forecastDays={forecastDays}
-                                viewingForecastDate={viewingForecastDate}
-                                activeViewingData={activeViewingData}/>
+                                viewingForecastDate={viewingForecastDate}/>
                     </section>
 
                 </main>

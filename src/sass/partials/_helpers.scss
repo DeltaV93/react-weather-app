@@ -1,4 +1,4 @@
-// text center
+// text helpers
 .text-center {
   text-align: center;
 }
@@ -12,4 +12,8 @@
 .list--unstyled {
   list-style: none;
   padding-left: $padding/0.5;
+}
+
+.no-padding {
+  padding: 0px !important;
 }

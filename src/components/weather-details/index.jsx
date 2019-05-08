@@ -42,7 +42,6 @@ export default class Index extends React.Component {
         const { eventEmitter } = this.props;
 
         return <section className="container--details container--flex flex--col">
-            <h1 className="title">Weather App</h1>
             <ActiveForecast {...this.props}/>
             <Manager>
                 <Reference>

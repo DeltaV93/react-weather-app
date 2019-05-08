@@ -1,6 +1,7 @@
 import React from "react";
 
 import Forecast from "./forecast"
+import "./styles.scss"
 
 export default class ForecastDetails extends React.Component {
 
@@ -10,13 +11,13 @@ export default class ForecastDetails extends React.Component {
     }
 
     render() {
-        const { forecastDays } = this.props;
+        const { forecastDays, viewingForecastDate } = this.props;
 
-        return <section className="container--flex">
+        return <section className="container--flex no-padding">
             <div className="weather--box weather__box--forecast">
                 {forecastDays &&
                     forecastDays.map((day, index) => {
-                        return <Forecast data={day} key={index} />;
+                        return <Forecast activeViewDate={viewingForecastDate} data={day} key={index} />;
                     })}
             </div>
 

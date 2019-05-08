@@ -1,10 +1,9 @@
 @import "partials/variables";
-@import "partials/helpers";
 @import "partials/base";
 @import "partials/grid";
 @import "partials/font";
 @import "partials/buttons";
-
+@import "partials/helpers";
 
 .wrapper {
   width: 100%;
@@ -14,29 +13,41 @@
   .container--main {
     background-color: #fff;
     box-shadow: 0 5px 15px rgba($primary, .4);
-    max-width: 600px;
+    //max-width: 700px;
+    //min-width: 650px;
+    //max-width: 700px;
+    //height: auto;
+    width: auto;
     height: auto;
     flex-direction: column;
     border: 1px solid #c3c3c3;
     border-radius: 3px;
-    padding: 25px;
   }
   .section--top,
   .section--bottom {
     flex: 0 0 50%;
   }
 }
+  .section--top {
+    padding: 25px;
+  }
+  //.section--bottom {
+  //  -moz-box-shadow: inset 0px 3px 7px #00000040;
+  //  -webkit-box-shadow: inset 0px 3px 7px #00000040;
+  //  box-shadow: inset 0px 3px 7px #00000040;
+  //}
+
 
 .popup-container {
-    height: 11em;
-    width: 18em;
-    align-items: center;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0px 0px 5px 2px rgba(15, 15, 15, 0.2);
-    font-size: 16px;
-    top: 35px !important;
-    padding: 20px;
+  height: 11em;
+  width: 18em;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px 2px rgba(15, 15, 15, 0.2);
+  font-size: 16px;
+  top: 35px !important;
+  padding: 20px;
 }
 
 .form-container {
