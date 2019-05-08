@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import axios from "axios";
 import "./App.css";
-import moment from "moment";
 
 import "./sass/app.scss"
 
@@ -23,21 +22,8 @@ class App extends Component {
             refreshedTime: 300,
         }
     }
-    /**
-     * Summary
-     * Used to find the the current forecast based on current viewingForecastDate
-     *
-     * @forecastList {array}    list of weather forecast data.
-     * @date {string}           string of the date we're looking to match.
-     * @return {list} Returns a single list of the data we are looking for.
-     */
-    findMatchingDate(forecastList, date) {
-        forecastList.map( (forecast, index) => {
-          if(forecast.date === date){
-             return forecastList[index];
-          }
-        });
-    }
+
+
      /**
      * Summary
      * Dose a ajax GET request to pull weather data based on info the user provides*
@@ -55,24 +41,28 @@ class App extends Component {
             return response.data;
         }).then((data) => {
 
-            let viewingDate;
+            let setForecastDate;
             let viewingData;
-            let forcastList = data.forecast.forecastday;
+            let forecastList = data.forecast.forecastday;
             // if viewingForecastDate is set, we can update later
             // if not, we need to set it as the current date
             if(!this.state.viewingForecastDate){
-                viewingDate = data.forecast.forecastday[0].date;
+                setForecastDate = data.forecast.forecastday[0].date;
                 viewingData =  data.forecast.forecastday[0];
             } else {
-                viewingDate = this.state.activeViewingData;
-                viewingData = this.findMatchingDate(forcastList, viewingDate);
+                setForecastDate = this.state.viewingForecastDate;
+                 // Used to find the the current forecast based
+                // on current setForecastDate
+                forecastList.map( (forecast, index) => {
+                    if (forecast.date === setForecastDate) {
+                        viewingData = forecastList[index];
+                    }
+                });
             }
-            // make sure the data is formatted to match the json response
-            // set the state
 
             this.setState({
                 isLoading: false,
-                viewingForecastDate: viewingDate,
+                viewingForecastDate: setForecastDate,
                 activeViewingData: viewingData,
                 forecastDays: data.forecast.forecastday,
                 locationData: data.location,
