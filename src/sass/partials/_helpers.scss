@@ -2,12 +2,15 @@
 .text--center {
   text-align: center;
 }
+
 .text--left {
   text-align: left;
 }
+
 .text--right {
   text-align: right;
 }
+
 .text--bold {
   font-weight: bold;
 }
@@ -20,10 +23,24 @@
 .no-padding {
   padding: 0px !important;
 }
+
 .h--center {
-    margin: 0 auto;
-    float: none;
+  margin: 0 auto;
+  float: none;
 }
-.v--center{
-  vertical-align: middle!important;
+
+.v--center {
+  vertical-align: middle !important;
+}
+
+// display none based on screen size
+@each $name, $breakpoint in $browser-breakpoints {
+  @media (min-width: $breakpoint) {
+
+    //Creates: .display--none__sm, .display--none__md, .display--none__lg
+    .display-none--#{$name} {
+      display: none;
+    }
+
+  }
 }

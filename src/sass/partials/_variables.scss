@@ -1,3 +1,25 @@
 $primary: #000;
 $secondary: #736CED;
-$padding: 10px;
+$padding: 15px;
+
+// Number of total columns in grid
+$columns: 25;
+
+// Space between columns
+$gutter: 10px;
+
+// Width of grid container
+$container-widths: (
+        sm: 644px,
+        md: 820px,
+        lg: 1060px,
+        xl: 1690px,
+);
+
+// Width of browser before a grid resize is triggered
+$browser-breakpoints: (
+        sm: 480px,
+        md: 980px,
+        lg: 1280px,
+        xl: 1690px,
+);
