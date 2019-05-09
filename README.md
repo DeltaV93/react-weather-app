@@ -101,7 +101,6 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - Valerie Sharp
 - [Twitter: @digitalblkhippy](https://twitter.com/digitalblkhippy) 
 - [Github: deltaV93](http://github.com/deltav93) 
-- [Website](https://www.issa.engineer) 
 
 
 ## Contributing 
