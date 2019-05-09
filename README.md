@@ -1,6 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 # React Weather App - Feedback Welcomed 
-Simple weather app build as a way to relearn ReactJS
+Simple weather app build as a way to relearn ReactJS. Select the location using city name or zip to get the current weather and 5 day forecast. Want to learn more about the weather for the upcomeing days? Great news! You can do this within this amazing little app, just select the day you want to learn more about and 💥you get more details.
+
+<img src="http://37.media.tumblr.com/67ac00add1b0804c88e880d01f07385e/tumblr_n719x8F9gA1tx62nqo1_500.gif" title="boom gif from atlantis to emphasize that I'm corny" />
 
 ---
 Todo
@@ -13,6 +15,7 @@ Todo
 7. get user location from the browser to get first location
 8. Write more test
 9. Store up to 5 locations
+10. Find a better weather API that has more details
 ---
 
 
