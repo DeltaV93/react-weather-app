@@ -6,12 +6,8 @@ export default class ActiveForecast extends React.Component {
         super(props);
     }
 
-    componentDidMount(){
-        console.log(this.props.activeViewingData)
-    }
-
     render() {
-        const {activeViewingData, locationData, currentData} = this.props;
+        const {activeViewingData, locationData} = this.props;
 
         return <section>
             <h2 className="weather__location text-center">
@@ -19,7 +15,7 @@ export default class ActiveForecast extends React.Component {
             </h2>
           <div className="weather--box flex--row">
                 <section className="weather--box__main-content container--flex flex--col">
-                    <p>Today's Average</p>
+                    <p>Daily Average</p>
                     <div className="weather--main-content">
                         <div className="weather__img">
                             <img src={activeViewingData.day.condition.icon}
