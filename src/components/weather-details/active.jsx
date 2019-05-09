@@ -13,18 +13,18 @@ export default class ActiveForecast extends React.Component {
             <h2 className="weather__location text--center">
                 {locationData.name}
             </h2>
-          <div className="weather--box row">
+            <div className="weather--box row">
                 <div className="lg-5">&nbsp;</div>
                 <section className="weather--box__main-content lg-8">
                     <h3 className="text--bold">Daily Average</h3>
                     <div className="weather--main-content">
                         <div className="weather__img">
                             <img src={activeViewingData.day.condition.icon}
-                                 alt={"image describing " + activeViewingData.day.condition.text + " weather"} />
+                                 alt={"image describing " + activeViewingData.day.condition.text + " weather"}/>
                         </div>
                         <div className="weather__degrees">
 
-                            {activeViewingData.day.avgtemp_f }&deg;
+                            {activeViewingData.day.avgtemp_f}&deg;
                         </div>
                     </div>
                     <div className="weather__details">{activeViewingData.day.condition.text}</div>
@@ -43,7 +43,7 @@ export default class ActiveForecast extends React.Component {
                         </li>
                     </ul>
                 </section>
-              <div className="lg-6">&nbsp;</div>
+                <div className="lg-6">&nbsp;</div>
             </div>
         </section>
     }
