@@ -20,17 +20,32 @@ export default class Index extends React.Component {
         });
     }
 
+    toggleOverlayState(){
+        const popupState = this.state.isSelectLocationOpen;
+        const bodyTag = document.querySelector("body");
+
+        if(popupState){
+            bodyTag.classList.add("overlay")
+        } else {
+            bodyTag.classList.remove("overlay")
+        }
+    }
+
     onToggleSelectLocation() {
+        const bodyTag = document.querySelector("body");
+        bodyTag.classList.toggle("overlay");
         this.setState(prevState => ({
             isSelectLocationOpen: !prevState.isSelectLocationOpen
-        }));
+        }), () => this.toggleOverlayState() );
     }
 
     onSelectCity() {
         const {locationName} = this.state;
         const {eventEmitter} = this.props;
         eventEmitter.emit("updateWeather", locationName);
-        this.setState({isSelectLocationOpen: false});
+        this.setState({
+            isSelectLocationOpen: false
+        },() => this.toggleOverlayState());
     }
 
     render() {
