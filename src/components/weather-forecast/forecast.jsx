@@ -16,21 +16,25 @@ export default class Forecast extends React.Component {
         const {data, activeViewDate} = this.props;
         if (!data) return null;
 
-        return (<section className="container--flex container--forecast">
-                <a onClick={((e) => this.onSelectDetails(data.date))} data-selected-date={data.date}
-                   className={
-                       "weather--box__forecast " + (activeViewDate == data.date ? "weather--box__active" : "")
-                   }>
-                    <div className="weather__date">{moment(data.date).format("dddd")}</div>
+        return (<a className={
+                "container--forecast lg-5 " + (activeViewDate == data.date ? "weather--box__active" : "")}
+                   onClick={((e) => this.onSelectDetails(data.date))} data-selected-date={data.date}>
+                <div
+                    className="weather--box__forecast">
+                    <div className="weather__date text--center">
+                        <h3>{moment(data.date).format("dddd")}</h3>
+                    </div>
                     <div className="weather--main-content">
                         <div className="weather__img">
                             <img src={data.day.condition.icon} alt={data.day.condition.text}/>
                         </div>
-                        <div className="weather__degrees">{data.day.avgtemp_f}&deg;</div>
+                        <div className="weather__degrees">
+                            <p className="text--bold">{data.day.avgtemp_f}&deg;</p>
+                        </div>
                     </div>
                     <div className="weather__details">{data.day.condition.text}</div>
-                </a>
-            </section>
+                </div>
+            </a>
         )
     }
 }

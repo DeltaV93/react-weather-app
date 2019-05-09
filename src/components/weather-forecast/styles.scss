@@ -1,28 +1,40 @@
 $box-active: #d8daeb;
-//$container-bgc: #f0faec;
 $container-bgc: #f4ebf3;
 
 .container--forecast {
-  background-color: $container-bgc;
-
-}
-
-.weather--box__forecast  {
-  padding: 20px;
-  width: 120px;
   transition: all 0.5s ease;
-  border-radius: 5px;
-  //width: ;
   border: 1px solid transparent;
+  padding: 20px;
   &:hover {
     background: lighten($box-active, 3%);
     border: 1px solid darken(lighten($box-active, 3%), 5%);
   }
 }
-.weather--box__active {
-    background: $box-active;
-    border: 1px solid darken($box-active, 10%);
 
+.weather--box__forecast {
+  width: 150px;
+  transition: all 0.5s ease;
+  border-radius: 5px;
+  .weather__date {
+    height: 30px;
+    width: 100%;
+  }
+  .weather__img {
+    height: 100px;
+    width: 150px;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .weather__details {
+    height: 30px;
+  }
+}
+
+.weather--box__active {
+  background: $box-active;
+  border: 1px solid darken($box-active, 10%);
 
   &:hover {
     background: darken($box-active, 5%);

@@ -13,8 +13,8 @@ export default class ForecastDetails extends React.Component {
     render() {
         const {forecastDays, viewingForecastDate} = this.props;
 
-        return <section className="container--flex no-padding">
-            <div className="weather--box weather__box--forecast">
+        return <section className="forecast--box">
+            <div className="weather--box weather__box--forecast row">
                 {forecastDays &&
                 forecastDays.map((day, index) => {
                     return <Forecast activeViewDate={viewingForecastDate}

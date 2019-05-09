@@ -10,7 +10,7 @@ export default class ActiveForecast extends React.Component {
         const {activeViewingData, locationData} = this.props;
 
         return <section>
-            <h2 className="weather__location text-center">
+            <h2 className="weather__location text--center">
                 {locationData.name}
             </h2>
           <div className="weather--box flex--row">
