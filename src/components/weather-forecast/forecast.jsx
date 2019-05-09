@@ -17,21 +17,19 @@ export default class Forecast extends React.Component {
         if (!data) return null;
 
         return (<a className={
-                "container--forecast lg-5 " + (activeViewDate == data.date ? "weather--box__active" : "")}
+                "container--forecast lg-5 sm-25 lg-5" + (activeViewDate == data.date ? "weather--box__active" : "")}
                    onClick={((e) => this.onSelectDetails(data.date))} data-selected-date={data.date}>
                 <div
-                    className="weather--box__forecast">
+                    className="weather--box__forecast h--center">
                     <div className="weather__date text--center">
                         <h3>{moment(data.date).format("dddd")}</h3>
                     </div>
-                    <div className="weather--main-content">
-                        <div className="weather__img">
+                                            <div className="weather__img">
                             <img src={data.day.condition.icon} alt={data.day.condition.text}/>
                         </div>
                         <div className="weather__degrees">
                             <p className="text--bold">{data.day.avgtemp_f}&deg;</p>
                         </div>
-                    </div>
                     <div className="weather__details">{data.day.condition.text}</div>
                 </div>
             </a>
