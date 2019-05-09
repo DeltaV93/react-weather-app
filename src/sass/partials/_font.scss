@@ -1,6 +1,20 @@
-h1,
-h2,
-h3 {
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Baloo+Bhai');
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+p {
   margin-top: 0;
   margin-bottom: 5px;
 }
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+  font-family: "Baloo Bhai", sans-serif;
+}
+

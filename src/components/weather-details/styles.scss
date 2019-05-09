@@ -10,8 +10,6 @@
 }
 
 .weather--box {
-  display: flex;
-  //flex-direction: column;
   text-align: center;
   width: 100%;
 
@@ -22,26 +20,14 @@
       align-items: center;
       align-self: center;
 
-      .weather__img {
-        //width: 3em;
-        //height: 3em;
-        //margin-right: 1.5em;
-
-        //img {
-        //  width: 100%;
-        //  height: 100%;
-        //}
-      }
-
-      .weather__degrees {
-        font-size: 250%;
-      }
     }
   }
-
-  .weather--box__details-content{
-    margin-top: 60px;
-    margin-left: 50px;
+  .weather__degrees {
+    font-size: 250%;
+    font-weight: bold;
+  }
+  .weather--box__details-content > h3 {
+    margin-bottom: 16%;
   }
 
 }

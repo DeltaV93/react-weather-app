@@ -1,13 +1,55 @@
-// grid
-.container--flex {
-  display: flex;
-  padding: $padding;
-}
-.flex--row {
-  flex-direction: row;
-}
-.flex--col {
-  flex-direction: column;
+.container-fluid {
+  // @extend .container;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 100px;
+  margin-bottom: 100px;
+
 }
 
-// TODO || Create a responsive grid using flex
+.container {
+  width: 100%;
+  margin-left: $padding;
+  margin-right: $padding;
+
+  // Creates a media query for each browser breakpoint
+  @each $name, $breakpoint in $browser-breakpoints {
+    @media (min-width: $breakpoint) {
+      width: map-get($container-widths, $name)
+    }
+  }
+}
+
+.row {
+  @include clearfix();
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+.col {
+  position: relative;
+  min-height: 1px;
+
+  // Adds even padding to both sides of a column
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+
+// Builds grid columns for each browser breakpoint
+// See Column Output Below
+@each $name, $breakpoint in $browser-breakpoints {
+  @media (min-width: $breakpoint) {
+
+    // Loop through each column
+    @for $i from 1 through $columns {
+
+      //Creates: .sm-1, .md-1, .lg-1
+      .#{$name}-#{$i} {
+        float: left;
+        width: percentage($i/$columns);
+      }
+
+    }
+
+  }
+}

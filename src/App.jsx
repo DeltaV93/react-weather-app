@@ -140,9 +140,12 @@ class App extends Component {
         } = this.state;
 
         return (
-            <div className="wrapper container--flex flex--col">
-                <h1 className="title">Weather App</h1>
-                <main className="container container--main">
+            <div className="container h--center v--center">
+                <header>
+                    <h1 className="title text--center">Weather App</h1>
+                </header>
+
+                <main className="container container--main sm-25">
                     {isLoading && <h3>Loading Weather Detail ...</h3>}
                     {!isLoading && (
                         <section className="section--top">

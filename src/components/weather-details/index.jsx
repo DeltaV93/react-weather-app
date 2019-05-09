@@ -20,41 +20,56 @@ export default class Index extends React.Component {
         });
     }
 
+    toggleOverlayState(){
+        const popupState = this.state.isSelectLocationOpen;
+        const bodyTag = document.querySelector("body");
+
+        if(popupState){
+            bodyTag.classList.add("overlay")
+        } else {
+            bodyTag.classList.remove("overlay")
+        }
+    }
+
     onToggleSelectLocation() {
+        const bodyTag = document.querySelector("body");
+        bodyTag.classList.toggle("overlay");
         this.setState(prevState => ({
             isSelectLocationOpen: !prevState.isSelectLocationOpen
-        }));
+        }), () => this.toggleOverlayState() );
     }
 
     onSelectCity() {
         const {locationName} = this.state;
         const {eventEmitter} = this.props;
         eventEmitter.emit("updateWeather", locationName);
-        this.setState({isSelectLocationOpen: false});
-    }
-    componentDidMount() {
-        console.log(this.props)
+        this.setState({
+            isSelectLocationOpen: false
+        },() => this.toggleOverlayState());
     }
 
     render() {
         const {isSelectLocationOpen} = this.state;
 
-        return <section className="container--details container--flex flex--col">
+        return <section className="row">
             <ActiveForecast {...this.props}/>
             <Manager>
                 <Reference>
                     {({ref}) => (
-                        <button ref={ref}
-                                type="button"
-                                onClick={this.onToggleSelectLocation.bind(this)}
-                                className="btn btn--select-location">
-                            Pick Location +</button>
+                        <div className="forecast-action">
+                            <button ref={ref}
+                                    type="button"
+                                    onClick={this.onToggleSelectLocation.bind(this)}
+                                    className="btn btn--select-location h--center">
+                                Pick Location +</button>
+                        </div>
+
                     )}
                 </Reference>
                 <Popper placement="top">
                     {({ref, style, placement, arrowProps}) =>
                         isSelectLocationOpen && (
-                            <div className="container--flex popup-container"
+                            <div className="popup-container"
                                  ref={ref}
                                  style={style}
                                  data-placement={placement}>
