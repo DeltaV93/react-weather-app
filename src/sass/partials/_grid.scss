@@ -1,13 +1,89 @@
 // grid
-.container--flex {
-  display: flex;
-  padding: $padding;
-}
-.flex--row {
-  flex-direction: row;
-}
-.flex--col {
-  flex-direction: column;
-}
+//.container--flex {
+//  display: flex;
+//  padding: $padding;
+//}
+//.flex--row {
+//  flex-direction: row;
+//}
+//.flex--col {
+//  flex-direction: column;
+//}
 
 // TODO || Create a responsive grid using flex
+  // Number of total columns in grid
+    $columns: 25;
+
+    // Space between columns
+    $gutter: 10px;
+
+    // Container padding
+    $containerPadding: 15px;
+
+    // Width of grid container
+    $container-widths: (
+      sm: 644px,
+      md: 820px,
+      lg: 1060px,
+    );
+
+    // Width of browser before a grid resize is triggered
+    $browser-breakpoints: (
+      sm: 768px,
+      md: 992px,
+      lg: 1200px,
+    );
+    .container-fluid {
+      // @extend .container;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 100px;
+      margin-bottom: 100px;
+
+    }
+    .container{
+      width: 100%;
+      margin-left: $containerPadding;
+      margin-right: $containerPadding;
+
+      // Creates a media query for each browser breakpoint
+      @each $name, $breakpoint in $browser-breakpoints {
+        @media (min-width: $breakpoint) {
+          width: map-get($container-widths, $name)
+        }
+      }
+    }
+
+    .row{
+      @include clearfix();
+      padding-left: ($gutter / 2);
+      padding-right: ($gutter / 2);
+    }
+
+    .col {
+      position: relative;
+      min-height: 1px;
+
+      // Adds even padding to both sides of a column
+      padding-left: ($gutter / 2);
+      padding-right: ($gutter / 2);
+    }
+
+    // Builds grid columns for each browser breakpoint
+    // See Column Output Below
+    @each $name, $breakpoint in $browser-breakpoints {
+        @media (min-width: $breakpoint) {
+
+            // Loop through each column
+            @for $i from 1 through $columns {
+
+                //Creates: .sm-1, .md-1, .lg-1
+                .#{$name}-#{$i} {
+                    float: left;
+                    width: percentage($i/$columns);
+                }
+
+            }
+
+        }
+    }

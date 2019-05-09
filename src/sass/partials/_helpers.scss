@@ -1,5 +1,5 @@
 // text helpers
-.text-center {
+.text--center {
   text-align: center;
 }
 .text--left {
@@ -8,7 +8,10 @@
 .text--right {
   text-align: right;
 }
-//
+.text--bold {
+  font-weight: bold;
+}
+
 .list--unstyled {
   list-style: none;
   padding-left: $padding/0.5;
@@ -16,4 +19,11 @@
 
 .no-padding {
   padding: 0px !important;
+}
+.h--center {
+    margin: 0 auto;
+    float: none;
+}
+.v--center{
+  vertical-align: middle!important;
 }
