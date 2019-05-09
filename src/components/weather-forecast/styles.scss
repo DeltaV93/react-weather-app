@@ -2,16 +2,16 @@ $box-active: #d8daeb;
 $container-bgc: #f4ebf3;
 
 .container--forecast {
-  transition: all 0.5s ease;
+    transition: all 0.5s ease;
   border: 1px solid transparent;
-  padding: 20px;
+    padding: 20px;
   &:hover {
     background: lighten($box-active, 3%);
     border: 1px solid darken(lighten($box-active, 3%), 5%);
   }
 }
 
-.weather--box__forecast {
+.weather--box__forecast  {
   width: 150px;
   transition: all 0.5s ease;
   border-radius: 5px;
@@ -31,10 +31,10 @@ $container-bgc: #f4ebf3;
     height: 30px;
   }
 }
-
 .weather--box__active {
-  background: $box-active;
-  border: 1px solid darken($box-active, 10%);
+    background: $box-active;
+    border: 1px solid darken($box-active, 10%);
+
 
   &:hover {
     background: darken($box-active, 5%);

@@ -36,22 +36,25 @@ export default class Index extends React.Component {
     render() {
         const {isSelectLocationOpen} = this.state;
 
-        return <section className="container--details container--flex flex--col">
+        return <section className="row">
             <ActiveForecast {...this.props}/>
             <Manager>
                 <Reference>
                     {({ref}) => (
-                        <button ref={ref}
-                                type="button"
-                                onClick={this.onToggleSelectLocation.bind(this)}
-                                className="btn btn--select-location">
-                            Pick Location +</button>
+                        <div className="forecast-action">
+                            <button ref={ref}
+                                    type="button"
+                                    onClick={this.onToggleSelectLocation.bind(this)}
+                                    className="btn btn--select-location h--center">
+                                Pick Location +</button>
+                        </div>
+
                     )}
                 </Reference>
                 <Popper placement="top">
                     {({ref, style, placement, arrowProps}) =>
                         isSelectLocationOpen && (
-                            <div className="container--flex popup-container"
+                            <div className="popup-container"
                                  ref={ref}
                                  style={style}
                                  data-placement={placement}>

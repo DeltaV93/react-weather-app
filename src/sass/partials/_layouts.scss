@@ -8,9 +8,18 @@ main {
     border: 1px solid #c3c3c3;
     border-radius: 3px;
 }
+header {
+  padding: $padding;
+  font-size: 120%;
+}
 
 .section--top {
   padding: 25px;
+}
+.forecast-action {
+  display: flex;
+  justify-content: center;
+  padding-top: $padding * 2;
 }
 
 .section--bottom {

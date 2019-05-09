@@ -29,17 +29,18 @@
   float: none;
 }
 
-.v--center {
-  vertical-align: middle !important;
-}
-
-// display none based on screen size
+// custom styles based on screen size
 @each $name, $breakpoint in $browser-breakpoints {
   @media (min-width: $breakpoint) {
 
     //Creates: .display--none__sm, .display--none__md, .display--none__lg
     .display-none--#{$name} {
       display: none;
+    }
+    //Creates: .display--none__sm, .display--none__md, .display--none__lg
+    .h--center--#{$name} {
+      margin: 0 auto;
+      float: none;
     }
 
   }

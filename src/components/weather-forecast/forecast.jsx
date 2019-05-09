@@ -17,7 +17,7 @@ export default class Forecast extends React.Component {
         if (!data) return null;
 
         return (<a className={
-                "container--forecast lg-5 sm-25 lg-5" + (activeViewDate == data.date ? "weather--box__active" : "")}
+                "container--forecast lg-5 sm-25 lg-5 " + (activeViewDate == data.date ? "weather--box__active" : "")}
                    onClick={((e) => this.onSelectDetails(data.date))} data-selected-date={data.date}>
                 <div
                     className="weather--box__forecast h--center">
