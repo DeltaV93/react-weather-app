@@ -32,9 +32,6 @@ export default class Index extends React.Component {
         eventEmitter.emit("updateWeather", locationName);
         this.setState({isSelectLocationOpen: false});
     }
-    componentDidMount() {
-        console.log(this.props)
-    }
 
     render() {
         const {isSelectLocationOpen} = this.state;
