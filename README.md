@@ -7,17 +7,26 @@ Simple weather app build as a way to relearn ReactJS. Select the location using 
 
 ---
 Todo
-1. Update keys to be used with .env
-2. Turn all backend calls into JSON 
-3. Create a responsive grid using flex
-4. Fix issue with card styling. Give elements in the card fix width & height so the card does not change sizes 
+1. code cleanup: refactor functions
+2. Write more test (need to learn the react way to do this )
+3. Store up to 5 locations
+4. get user location from the browser to get first location
 5. Improve UX by adding alert messages to notify the user of the error
-6. code cleanup: refactor functions
-7. get user location from the browser to get first location
-8. Write more test
-9. Store up to 5 locations
-10. Find a better weather API that has more details
+6. Find a better weather API that has more details
+7. Update keys to be used with .env 
 ---
+
+
+## Requirements
+- npm 5.2+
+
+
+## Project Built With
+- Axios
+- Moment
+- Sass
+- React
+- React-popper
 
 
 ## Available Scripts
@@ -86,3 +95,18 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## Developer's Note
+- Valerie Sharp
+- [Twitter: @digitalblkhippy](https://twitter.com/digitalblkhippy) 
+- [Github: deltaV93](http://github.com/deltav93) 
+- [Website](https://www.issa.engineer) 
+
+
+## Contributing 
+- Fork it (https://github.com/deltav93/react-weather-app/fork)
+- Create your feature branch (git checkout -b feature/fooBar)
+- Commit your changes (git commit -am 'Add some fooBar')
+- Push to the branch (git push origin feature/fooBar)
+- Create a new Pull Request
